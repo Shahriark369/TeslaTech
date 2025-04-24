@@ -2,7 +2,7 @@ import streamlit as st
 import urllib.parse
 
 # --- PAGE CONFIG ---
-st.set_page_config(page_title="TeslaTech | High-End Website Development", layout="wide")
+st.set_page_config(page_title="TeslaTech", page_icon="💻", layout="wide")
 
 # --- CUSTOM STYLE ---
 st.markdown("""
