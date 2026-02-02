@@ -1,5 +1,7 @@
 Flask
-gunicorn
+Flask-PyMongo
+pymongo
+dnspython
 requests
-Flask-Session
-flask_pymongo
+python-dotenv
+gunicorn
