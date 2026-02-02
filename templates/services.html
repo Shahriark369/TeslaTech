@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="py-24 px-10 max-w-7xl mx-auto">
+    <div class="mb-20">
+        <h1 class="text-6xl font-black mb-4">PROFESSIONAL <br><span class="text-cyan-500">SOLUTIONS.</span></h1>
+        <p class="text-gray-500 max-w-xl text-lg uppercase tracking-widest">Scalable architecture for modern digital landscapes.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-white/5 border border-white/10 p-12 rounded-[40px] hover:border-cyan-500/40 transition-all duration-500 group">
+            <div class="w-16 h-16 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-cyan-500 transition-colors">
+                <svg class="w-8 h-8 text-cyan-500 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="text-3xl font-bold mb-4">Backend Engineering</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">Building the "brain" of your application using Python (Flask/Django) and robust MongoDB integration. Focused on speed, security, and uptime.</p>
+            <ul class="text-sm text-cyan-500/80 space-y-2 font-mono">
+                <li>// API Development</li>
+                <li>// Logic Architecture</li>
+                <li>// System Security</li>
+            </ul>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-12 rounded-[40px] hover:border-cyan-500/40 transition-all duration-500 group">
+            <div class="w-16 h-16 bg-cyan-500/10 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-cyan-500 transition-colors">
+                <svg class="w-8 h-8 text-cyan-500 group-hover:text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="text-3xl font-bold mb-4">Database Design</h3>
+            <p class="text-gray-400 leading-relaxed mb-6">Designing schema-less MongoDB databases that grow with your users. We ensure your data is structured for lightning-fast queries.</p>
+            <ul class="text-sm text-cyan-500/80 space-y-2 font-mono">
+                <li>// Atlas Cloud Setup</li>
+                <li>// Data Aggregation</li>
+                <li>// Performance Tuning</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mt-20 bg-cyan-500 p-16 rounded-[40px] flex flex-col md:flex-row justify-between items-center text-black">
+        <h2 class="text-4xl font-black mb-6 md:mb-0">HAVE A COMPLEX <br>CHALLENGE?</h2>
+        <a href="/#contact" class="bg-black text-white px-10 py-5 rounded-full font-bold hover:scale-105 transition">START A CONSULTATION</a>
+    </div>
+</div>
+{% endblock %}

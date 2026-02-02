@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="py-24 px-10 max-w-4xl mx-auto text-center">
+    <h1 class="text-5xl font-black mb-4 uppercase">Let's <span class="text-cyan-500">Interface.</span></h1>
+    <p class="text-gray-500 uppercase tracking-[0.3em] text-xs mb-16 font-mono">Status: Available for Global Collaboration</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white/5 border border-white/10 p-10 rounded-[40px] hover:border-cyan-500 transition-all group">
+            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-cyan-500 group-hover:text-black transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <h3 class="text-xs uppercase tracking-widest text-gray-500 mb-2">Direct Email</h3>
+            <p class="text-xl font-bold">teslatech.me@gmail.com</p>
+            <a href="mailto:teslatech.me@gmail.com" class="mt-4 inline-block text-cyan-500 text-[10px] font-bold uppercase tracking-widest">Send Message →</a>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 p-10 rounded-[40px] hover:border-[#25D366] transition-all group">
+            <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-[#25D366] group-hover:text-black transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.246 2.248 3.484 5.232 3.484 8.412-.003 6.557-5.338 11.892-11.893 11.892-1.997-.001-3.951-.5-5.688-1.448l-6.309 1.656zm6.29-4.143c1.565.933 3.176 1.423 4.842 1.425h.006c5.435 0 9.859-4.424 9.863-9.858 0-2.633-1.024-5.109-2.884-6.97-1.86-1.862-4.333-2.887-6.967-2.887-5.439 0-9.861 4.422-9.864 9.858 0 1.761.464 3.477 1.344 4.977l-.994 3.636 3.722-.976z"/></svg>
+            </div>
+            <h3 class="text-xs uppercase tracking-widest text-gray-500 mb-2">Secure Line</h3>
+            <p class="text-xl font-bold">WHATSAPP</p>
+            <a href="https://wa.me/8801400461284" target="_blank" class="mt-4 inline-block text-[#25D366] text-[10px] font-bold uppercase tracking-widest">Open WhatsApp →</a>
+        </div>
+    </div>
+
+    <div class="mt-16 bg-white/5 border border-white/10 p-6 rounded-2xl inline-flex items-center gap-4">
+        <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+        <p class="text-xs font-mono text-gray-400 tracking-tighter">GLOBAL_OPERATIONS_MODE_ENABLED // REMOTE_READY</p>
+    </div>
+</div>
+{% endblock %}

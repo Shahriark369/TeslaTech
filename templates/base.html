@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeslaXTech | Portfolio</title>
+    <link rel="icon" type="image/jpeg" href="https://i.postimg.cc/XqwhNmzC/505868714-122160383186500911-5460284551757295266-n.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --accent: #00f2ff;
+            --bg-dark: #050505;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+        #scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent), #0066ff);
+            z-index: 1000;
+        }
+
+        .glass-nav {
+            background: rgba(5, 5, 5, 0.85);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .mono { font-family: 'Space Mono', monospace; }
+
+        .nav-link { position: relative; }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(100%);
+        }
+        #mobile-menu.active {
+            transform: translateX(0);
+        }
+    </style>
+    {% block head %}{% endblock %}
+</head>
+<body class="selection:bg-cyan-500 selection:text-black">
+
+    <div id="scroll-progress"></div>
+
+    <nav class="glass-nav sticky top-0 w-full z-[100] px-6 md:px-16 py-5 flex justify-between items-center">
+        <a href="/" class="flex items-center gap-3 group">
+            <div class="relative">
+                <div class="absolute inset-0 bg-cyan-500 rounded-full blur-lg opacity-0 group-hover:opacity-40 transition-opacity duration-500"></div>
+                <img src="https://i.postimg.cc/XqwhNmzC/505868714-122160383186500911-5460284551757295266-n.jpg" 
+                     alt="TeslaXTech Logo" 
+                     class="w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/20 relative z-10 object-cover shadow-2xl">
+            </div>
+            <span class="text-lg md:text-xl font-black tracking-tighter uppercase">
+                Tesla<span class="text-cyan-500">X</span>Tech
+            </span>
+        </a>
+
+        <div class="hidden md:flex items-center space-x-10 text-[10px] uppercase tracking-[0.3em] font-bold">
+            <a href="/" class="nav-link hover:text-cyan-400 transition-colors">Work</a>
+            <a href="/about" class="nav-link hover:text-cyan-400 transition-colors">About</a>
+            <a href="/contact" class="nav-link hover:text-cyan-400 transition-colors">Contact</a>
+            
+            {% if session.admin_logged_in %}
+                <div class="h-4 w-[1px] bg-white/20"></div>
+                <a href="/admin" class="text-cyan-500 hover:text-cyan-300 transition-colors">Admin Panel</a>
+                <a href="/logout" class="text-red-500 hover:text-red-400 transition-colors">Exit</a>
+            {% else %}
+                <a href="/login" class="bg-white/5 hover:bg-white/10 border border-white/10 px-5 py-2 rounded-full transition-all duration-300">
+                    Access Console
+                </a>
+            {% endif %}
+        </div>
+
+        <button id="menu-toggle" class="md:hidden text-cyan-500 focus:outline-none z-[110]">
+            <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </nav>
+
+    <div id="mobile-menu" class="fixed inset-0 bg-[#050505] z-[105] flex flex-col justify-center items-center space-y-8 md:hidden">
+        <a href="/" class="text-2xl font-bold tracking-widest uppercase hover:text-cyan-500 transition">Work</a>
+        <a href="/about" class="text-2xl font-bold tracking-widest uppercase hover:text-cyan-500 transition">About</a>
+        <a href="/contact" class="text-2xl font-bold tracking-widest uppercase hover:text-cyan-500 transition">Contact</a>
+        
+        {% if session.admin_logged_in %}
+            <a href="/admin" class="text-cyan-500 text-xl font-bold">Admin Panel</a>
+            <a href="/logout" class="text-red-500 text-xl font-bold">Exit System</a>
+        {% else %}
+            <a href="/login" class="border border-white/20 px-8 py-3 rounded-full uppercase text-xs tracking-widest">Login</a>
+        {% endif %}
+    </div>
+
+    <main class="min-h-screen">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-[#030303] border-t border-white/5 py-10 md:py-16 px-6 md:px-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-center md:text-left">
+                <h3 class="text-lg font-black tracking-tighter mb-2 uppercase">Tesla<span class="text-cyan-500">X</span>Tech</h3>
+                <p class="text-[9px] md:text-[10px] text-gray-500 uppercase tracking-widest">© 2026 Developed for the Digital Frontier.</p>
+                <p class="mono text-[8px] md:text-[9px] text-cyan-500/40 mt-3 tracking-widest">LOC: 23.8103° N // 90.4125° E</p>
+            </div>
+
+            <div class="flex gap-8 items-center">
+                <a href="https://github.com/Shahriark369" class="text-gray-500 hover:text-cyan-500 transition-all">
+                    <span class="sr-only">GitHub</span>
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                </a>
+                <a href="/login" class="text-[9px] font-mono text-gray-700 hover:text-gray-400 tracking-widest transition">SYSTEM_LOGIN</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("scroll-progress").style.width = scrolled + "%";
+        };
+
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            if(menu.classList.contains('active')) {
+                icon.innerHTML = '<path d="M6 18L18 6M6 6l12 12" stroke-width="2" stroke-linecap="round"/>';
+            } else {
+                icon.innerHTML = '<path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round"/>';
+            }
+        });
+
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                icon.innerHTML = '<path d="M4 6h16M4 12h16m-7 6h7" stroke-width="2" stroke-linecap="round"/>';
+            });
+        });
+    </script>
+</body>
+</html>

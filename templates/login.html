@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="h-[70vh] flex items-center justify-center">
+    <form method="POST" class="bg-white/5 p-10 rounded-3xl border border-white/10 w-96 space-y-6">
+        <h2 class="text-2xl font-bold text-center">Admin <span class="text-cyan-500">Login</span></h2>
+        <input type="text" name="username" placeholder="Username" class="w-full bg-black border border-white/10 p-4 rounded-xl outline-none focus:border-cyan-500">
+        <input type="password" name="password" placeholder="Password" class="w-full bg-black border border-white/10 p-4 rounded-xl outline-none focus:border-cyan-500">
+        <button type="submit" class="w-full bg-white text-black font-bold py-3 rounded-xl hover:bg-cyan-500 transition">SECURE ENTRY</button>
+    </form>
+</div>
+{% endblock %}

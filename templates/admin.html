@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block head %}<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">{% endblock %}
+
+{% block content %}
+<div class="max-w-4xl mx-auto py-20 px-6">
+    <div class="bg-white/5 border border-white/10 rounded-3xl p-10 backdrop-blur-xl">
+        <h2 class="text-3xl font-bold mb-8">Management <span class="text-cyan-500">Console</span></h2>
+        
+        <form method="POST" enctype="multipart/form-data" class="space-y-6">
+            <input type="text" name="title" placeholder="Project Name" class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:border-cyan-500 outline-none" required>
+            <input type="text" name="link" placeholder="External URL" class="w-full bg-black/50 border border-white/10 p-4 rounded-xl focus:border-cyan-500 outline-none" required>
+            <div class="border-2 border-dashed border-white/10 p-10 text-center rounded-xl hover:border-cyan-500/50 transition">
+                <input type="file" name="image" class="text-sm" required>
+            </div>
+            <button type="submit" class="w-full bg-cyan-600 hover:bg-cyan-500 text-black font-bold py-4 rounded-xl transition shadow-lg shadow-cyan-500/20">UPLOAD PROJECT</button>
+        </form>
+
+        <div class="mt-16 space-y-4">
+            <h3 class="text-xl font-semibold text-gray-400">Active Repository</h3>
+            {% for project in projects %}
+            <div class="flex justify-between items-center bg-white/5 p-4 rounded-2xl border border-white/5">
+                <div class="flex items-center gap-4">
+                    <img src="{{ project.image }}" class="w-12 h-12 rounded-lg object-cover">
+                    <span class="font-medium">{{ project.title }}</span>
+                </div>
+                <a href="{{ url_for('delete_project', project_id=project._id) }}" class="text-red-500 hover:text-red-400 font-bold text-sm">DELETE</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
